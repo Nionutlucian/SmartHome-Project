@@ -1,0 +1,42 @@
+<div class="centre" fxFlex="50%">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <div class="form-div">
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="email" matInput placeholder="Email" [formControl]="emailFormControl" required>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field fxFlex="100%">
+                  <input [(ngModel)]="password" matInput placeholder="Password" type="password" name="password" [formControl]="passwordFormControl"  required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+    </div>
+    <mat-card-actions>
+      <button (click)="login(email,password)" mat-raised-button color="primary" fxFlex="100%" 
+      [disabled]="(emailFormControl.hasError('required') 
+      || emailFormControl.hasError('email')) 
+      || passwordFormControl.hasError('required')">Login</button>
+    </mat-card-actions>
+    <mat-error *ngIf="incorrectUserNameOrPassword">
+        Incorrect email or password.Please try again!
+    </mat-error>
+  </mat-card>
+</div>

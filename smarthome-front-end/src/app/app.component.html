@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div fxLayout="column">
+  <mat-toolbar *ngIf="!authenticated" color="primary">
+    <a mat-button routerLink=".">
+      <mat-icon>home</mat-icon><span class="mat-h2">&nbsp;&nbsp;CLEVER HOME</span>
+    </a>
+    <div fxFlex></div>
+    <a mat-button routerLink="/login"><span class="mat-h3">Sign in</span></a>
+    <a mat-button routerLink="/register"><span class="mat-h3">Sign up</span></a>
+  </mat-toolbar>
+  <mat-toolbar *ngIf="authenticated" color="primary">
+      <a mat-button routerLink=".">
+        <mat-icon>home</mat-icon><span class="mat-h2">&nbsp;&nbsp;CLEVER HOME</span>
+      </a>
+      <div fxFlex></div>
+      <a mat-button (click)="openUserDetailsDialog()"><span class="mat-h3">&nbsp;&nbsp;Hi, {{userLoged.lastName}} {{userLoged.firstName}}&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+      <a mat-button routerLink="/house">
+        <mat-icon>home</mat-icon>
+      </a>
+  </mat-toolbar>
+</div>
+<br>
+<br>
+<br>
+<router-outlet></router-outlet>

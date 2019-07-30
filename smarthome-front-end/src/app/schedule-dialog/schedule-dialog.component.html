@@ -1,0 +1,118 @@
+<mat-dialog-content>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step  [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>{{bulbs[0].name}}&nbsp;<mat-icon>wb_incandescent</mat-icon>
+            </ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/bulb.png">
+                <span>
+                    <br>
+                    <br>
+                    <ul style="list-style: none;">
+                        <li>
+                            <app-selectable-chips [chips]="daysOfTheWeek" (onChipSelected)="onChipSelected($event)">
+                            </app-selectable-chips>
+                        </li>
+                        <br>
+                    </ul>
+                </span>
+                <span>
+                    <br>
+                    <br>
+                    <ul style="list-style: none;">
+                        <li>
+                            <input type="time" [(ngModel)]="time">
+                            &nbsp;
+                            <mat-form-field>
+                                <mat-label>Action</mat-label>
+                                <select matNativeControl [(ngModel)]="action">
+                                    <option value="1">ON</option>
+                                    <option value="0">OFF</option>
+                                </select>
+                            </mat-form-field>
+                            &nbsp;
+                            <button mat-raised-button color="primary" (click)="setScheduleFirst(action,time,bulbs[0].id,bulbs[0].ip)">Set</button>
+                        </li>
+                        <br>
+                    </ul>
+                </span>
+            </div>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/calendar.png">
+                <span>
+                    <ul class="schedule" style="list-style: none;">
+                        <li><span>Active schedule on this device:</span></li>
+                        <br>
+                        <div *ngFor="let schedule of scheduleArrayFirst; index as i">
+                        <li ><span><button mat-raised-button color="warn" (click)="deleteFromScheduleArrayFirst(i)">Delete</button>&nbsp;&nbsp;{{schedule.days}} {{schedule.time}}
+                                {{schedule.action}}</span></li>
+                        <br>
+                        </div>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="saveSchedule()">Save</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+        <mat-step  [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>{{bulbs[1].name}}&nbsp;<mat-icon>wb_incandescent</mat-icon>
+            </ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/bulb.png">
+                <span>
+                    <br>
+                    <br>
+                    <ul style="list-style: none;">
+                        <li>
+                            <app-selectable-chips [chips]="daysOfTheWeek" (onChipSelected)="onChipSelected($event)">
+                            </app-selectable-chips>
+                        </li>
+                        <br>
+                    </ul>
+                </span>
+                <span>
+                    <br>
+                    <br>
+                    <ul style="list-style: none;">
+                        <li>
+                            <input type="time" [(ngModel)]="time">
+                            &nbsp;
+                            <mat-form-field>
+                                <mat-label>Action</mat-label>
+                                <select matNativeControl [(ngModel)]="action">
+                                    <option value="1">ON</option>
+                                    <option value="0">OFF</option>
+                                </select>
+                            </mat-form-field>
+                            &nbsp;
+                            <button mat-raised-button color="primary" (click)="setScheduleSecond(action,time,bulbs[1].id,bulbs[1].ip)">Set</button>
+                        </li>
+                        <br>
+                    </ul>
+                </span>
+            </div>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/calendar.png">
+                <span>
+                    <ul class="schedule" style="list-style: none;">
+                        <li><span>Active schedule on this device:</span></li>
+                        <br>
+                        <div *ngFor="let schedule of scheduleArraySecond; index as i">
+                        <li ><span><button mat-raised-button color="warn" (click)="deleteFromScheduleArraySecond(i)">Delete</button>&nbsp;&nbsp;{{schedule.days}} {{schedule.time}}
+                                {{schedule.action}}</span></li>
+                        <br>
+                        </div>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matPreviousStep>Back</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="saveSchedule()">Save</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-dialog-content>

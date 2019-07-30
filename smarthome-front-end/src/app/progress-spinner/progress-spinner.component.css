@@ -1,0 +1,18 @@
+.progressDiv {
+    display: table;
+    margin: auto;
+    padding: 100px;
+  }
+
+  mat-dialog-content{
+      width: 500px;
+      height: 400px;
+  }
+
+span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin:auto;
+    display: table;
+  }

@@ -1,0 +1,67 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+    <p><button mat-button (click)="openDialog()">Learn how to use <mat-icon>book</mat-icon></button></p>
+    <p><button mat-button (click)="openScheduleDialog()">Set a schedule <mat-icon>access_alarms</mat-icon></button></p>
+    <p><button mat-button (click)="openSpinnerAndCheckDevices()">Check devices <mat-icon>refresh</mat-icon></button></p>
+    <p><button mat-button (click)="openNotificationDialog()">Notifications <mat-icon>add_alert</mat-icon></button></p>
+    <p><button mat-button (click)="logOut()" id="signOutButton">Sign out <mat-icon>power_settings_new</mat-icon></button></p>
+  </mat-drawer>
+
+
+  <div *ngFor="let bulb of bulbs"  class="example-sidenav-content">
+    <img mat-card-image src="assets/img/bulb.png">
+    <span contenteditable="true" (blur)="updateBulbName($event,bulb.ip)">{{bulb.name}}</span>
+    <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000" value="{{bulb.brightness*1000}}" (change)="bulbSetBrightness($event,bulb.ip)"></mat-slider>
+    <mat-slide-toggle [(ngModel)]="bulb.state" (click)="bulbOnOff(!bulb.state,bulb.ip)"></mat-slide-toggle>
+  </div>
+  <div class="example-sidenav-content">
+    <img mat-card-image src="assets/img/door.png">
+    <span>Entry door</span>
+    <span>
+      <button mat-raised-button color="warn" [disabled]="doorOpen">Open</button>
+      <button mat-raised-button color="primary" [disabled]="doorClose">Closed</button>
+    </span>
+    <span>
+      <ul style="list-style-type:none;">
+          <li>Last update</li>
+          <li>&nbsp;&nbsp;{{lastUpdate}}</li>
+      </ul>
+    </span>
+  </div>
+  <div class="example-sidenav-content">
+    <img mat-card-image src="assets/img/gas.png">
+    <span>Gas sensor</span>
+    <span>
+      <button mat-raised-button color="warn" [disabled]="gasDanger">Danger</button>
+      <button mat-raised-button color="primary" [disabled]="gasSafe">Safe</button>
+    </span>
+    <span>
+      <ul style="list-style-type:none;">
+          <li>Last update</li>
+          <li>&nbsp;&nbsp;{{lastUpdate}}</li>
+      </ul>
+    </span>
+  </div>
+  <div class="example-sidenav-content">
+    <img mat-card-image src="assets/img/thermometer.png">
+    <span>Temperature</span>
+    <span>{{temperature}}°C</span>
+    <span>
+      <ul style="list-style-type:none;">
+          <li>Last update</li>
+          <li>&nbsp;&nbsp;{{lastUpdate}}</li>
+      </ul>
+    </span>
+  </div>
+  <div class="example-sidenav-content">
+    <img mat-card-image src="assets/img/humidity.png">
+    <span>Humidity</span>
+    <span>{{humidity}}%</span>
+    <span>
+      <ul style="list-style-type:none;">
+          <li>Last update</li>
+          <li>&nbsp;&nbsp;{{lastUpdate}}</li>
+      </ul>
+    </span>
+  </div>
+</mat-drawer-container>

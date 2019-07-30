@@ -1,0 +1,9 @@
+:host /deep/ .mat-form-field-infix{
+    width: 600px;
+}
+div.centre {
+    display: block;
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+  }

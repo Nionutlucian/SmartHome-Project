@@ -1,0 +1,84 @@
+<div class="centre" fxFlex="50%">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <div class="form-div">
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="firstName" matInput placeholder="First Name" [formControl]="firstNameFormControl" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="lastName" matInput placeholder="Last Name" [formControl]="lastNameFormControl" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input (keyup)="checkIfEmailAlreadyExist($event)" [(ngModel)]="email" matInput placeholder="Email" [formControl]="emailFormControl" required>
+                  <mat-error>
+                    <span *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Please enter a valid email address</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="emailAlreadyExist">Email already exist!</span>
+                </mat-error>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field fxFlex="100%">
+                  <input [(ngModel)]="password" matInput placeholder="Password" type="password" name="password" [formControl]="passwordFormControl"  required>
+                  <mat-error *ngIf="!passwordFormControl.hasError('minLength')">
+                    Password must contain at least 8 characters(One uppercase letter and a number)
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="adress" matInput placeholder="Adress" [formControl]="adressFormControl" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input (keyup)="checkIfPhoneNumberAlreadyExist($event)" [(ngModel)]="phoneNumber" matInput placeholder="Phone number" [formControl]="phoneFormControl" required>
+                </mat-form-field>
+                <mat-error>
+                  <span *ngIf="phoneAlreadyExist">Phone number already exist!</span>
+                </mat-error>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+    </div>
+    <mat-card-actions>
+      <button (click)="register(firstName,lastName,email,password,adress,phoneNumber)" mat-raised-button color="primary" fxFlex="100%" 
+      [disabled]="(bool && !(!emailFormControl.hasError('required') 
+                             && !emailFormControl.hasError('email')
+                             && !passwordFormControl.hasError('minLength') 
+                             && !passwordFormControl.hasError('pattern')
+                             && !adressFormControl.hasError('required')
+                             && !phoneFormControl.hasError('required')
+                             && !emailAlreadyExist
+                             && !phoneAlreadyExist
+                             && !firstNameFormControl.hasError('required')
+                             && !lastNameFormControl.hasError('required')))">Create new account
+        </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

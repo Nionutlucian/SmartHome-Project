@@ -1,0 +1,5 @@
+<mat-chip-list multiple>
+  <mat-chip class="chip_margin" *ngFor="let chip of chips" selectable="true" [selected]="isSelected(chip)" (click)="onClick($event, chip)">
+    <span class="unselectableText">{{chip}}</span>
+  </mat-chip>
+</mat-chip-list>

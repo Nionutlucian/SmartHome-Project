@@ -1,0 +1,103 @@
+ul li {
+  font-size: 18px;
+}
+
+.example-container {
+  width: 100%;
+  height: 750px;
+  border: 4px outset ;
+  background-color: white;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border: 2px outset;
+  margin: 5px;
+}
+
+.example-sidenav {
+  padding: 50px;
+  background-color:#3f51b5;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+.example-sidenav button{
+  font-size: 20px;
+  font-weight: bold;
+}
+.example-sidenav #signOutButton{
+  position: absolute;
+   bottom: 0;
+}
+.example-sidenav-content img {
+  width: 15%;
+  border: none;
+  height: 150px;
+}
+.example-sidenav-content span {
+  font-size: 30px;
+  font-weight: bold;
+  margin-right:30px;
+  margin-left:30px;
+  color: #3f51b5;
+  width:300px;
+}
+mat-slider {
+  width: 300px;
+  margin-right:30px;
+  margin-left:30px;
+  padding: 30px;
+}
+img {
+  margin-right:30px;
+  margin-left:30px;
+  padding: 30px;
+}
+
+mat-slide-toggle{
+  margin-right:30px;
+  margin-left:30px;
+  padding: 30px;
+}
+
+:host /deep/ .mat-accent .mat-slider-thumb, .mat-accent  .mat-accent .mat-slider-track-fill {
+  background-color: #3f51b5;
+}
+
+:host /deep/ .mat-slider-horizontal .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right,transparent,transparent 2px,transparent 0,transparent);
+  background-image: -moz-repeating-linear-gradient(.0001deg,transparent,transparent 2px,transparent 0,transparent);
+}
+
+:host /deep/ .mat-slider-thumb-label {
+  background-color: #3f51b5;
+}
+
+:host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: #3f51b5;
+}
+
+:host /deep/ .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #3f51b5;
+}
+
+:host /deep/ .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+   background-color: #fafafa; 
+}
+
+:host /deep/ .mat-slide-toggle-thumb {
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  background-color: #fafafa;
+}
+
+:host /deep/ .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #fafafa;
+}
+:host /deep/ .mat-slide-toggle.mat-checked{
+  background-color: #fafafa; 
+}

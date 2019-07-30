@@ -1,0 +1,122 @@
+<mat-dialog-content>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>Bulb</ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/bulb.png">
+                <span>
+                    <ul>
+                        <li>Slide for set the light intensity.</li>
+                        <li>Push the button for start or stop the bulb.</li>
+                    </ul>
+                </span>
+                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000">
+                </mat-slider>
+                <mat-slide-toggle></mat-slide-toggle>
+            </div>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>Door</ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/door.png">
+                <span>
+                    <ul>
+                        <li>Check if the door is open or closed.</li>
+                        <li>Push the button for check if door is open or closed.</li>
+                    </ul>
+                </span>
+                <span>
+                    <button mat-raised-button color="warn">Closed</button>
+                    <button mat-raised-button color="warn" disabled>Open</button>
+                </span>
+                <span>
+                    <ul style="list-style-type:none;">
+                        <li>Last update</li>
+                        <li>&nbsp;&nbsp;21:00:00</li>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>Thermometer</ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/thermometer.png">
+                <span>
+                    <ul>
+                        <li>Check the temperature in the house.</li>
+                        <li>Check when it was the last update.</li>
+                    </ul>
+                </span>
+                <span>21 °C</span>
+                <span>
+                    <ul style="list-style-type:none;">
+                        <li>Last update</li>
+                        <li>&nbsp;&nbsp;21:00:00</li>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>Gas sensor</ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/gas.png">
+                <span>
+                    <ul>
+                        <li>Check the level of safety in the house.</li>
+                        <li>Check when it was the last update.</li>
+                    </ul>
+                </span>
+                <span>
+                    <button mat-raised-button color="warn">Danger</button>
+                    <button mat-raised-button color="warn" disabled>Safe</button>
+                </span>
+                <span>
+                    <ul style="list-style-type:none;">
+                        <li>Last update</li>
+                        <li>&nbsp;&nbsp;21:00:00</li>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel>Humidity sensor</ng-template>
+            <div class="example-sidenav-content">
+                <img mat-card-image src="assets/img/humidity.png">
+                <span>
+                    <ul>
+                        <li>Check the humidity level in the house.</li>
+                        <li>Check when it was the last update.</li>
+                    </ul>
+                </span>
+                <span>21%</span>
+                <span>
+                    <ul style="list-style-type:none;">
+                        <li>Last update</li>
+                        <li>&nbsp;&nbsp;21:00:00</li>
+                    </ul>
+                </span>
+            </div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <span>&nbsp;&nbsp;</span>
+            <button mat-raised-button color="primary" (click)="close()">Finish</button>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-dialog-content>

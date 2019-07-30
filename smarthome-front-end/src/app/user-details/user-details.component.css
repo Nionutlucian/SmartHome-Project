@@ -1,0 +1,13 @@
+.userdetails{
+    width:110%;
+    height: 120%;
+}
+:host /deep/ .mat-form-field-infix{
+    width: 600px;
+}
+div.centre {
+    display: block;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
